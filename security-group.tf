@@ -19,6 +19,14 @@ resource "aws_security_group" "allowsshhttp" {
 
     cidr_blocks =  ["0.0.0.0/0"]
   }
+  ingress {
+
+    from_port   = 443 #  By default, the windows server listens on TCP port 22 for RDP
+    to_port     = 443
+    protocol =   "tcp"
+
+    cidr_blocks =  ["0.0.0.0/0"]
+  }
  
   egress {
     from_port       = 0
